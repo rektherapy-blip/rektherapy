@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REK Therapy — Tracy Croghan, LICSW</title>
+<meta name="description" content="REK Therapy with Tracy Croghan, LICSW. Compassionate individual therapy in Omaha, Nebraska. Accepting private pay and BCBS Nebraska.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+:root{
+  --blush:#f7e8e8;--rose:#e8b4b8;--rose-deep:#c97b84;
+  --lavender:#ede8f5;--lavender-mid:#c5b8e8;--lavender-deep:#8b7bbf;
+  --sage:#ddeede;--sage-mid:#a8ccb4;--sage-deep:#5a9470;
+  --cream:#fdf9f5;--warm:#f5ede4;--text:#3a3035;--muted:#8a7e86;
+  --border:#eddde4;--white:#ffffff;
+  --radius-lg:20px;--radius-xl:32px;--radius-pill:100px;
+}
+html{font-family:'Nunito',sans-serif;color:var(--text);background:var(--cream);font-size:16px;line-height:1.7}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(253,249,245,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(237,221,228,.5);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 24px rgba(180,130,140,.1)}
+.nav-brand{display:flex;align-items:baseline;gap:10px}
+.nav-brand-rek{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:var(--rose-deep);letter-spacing:-.01em}
+.nav-brand-sub{font-size:13px;font-weight:500;color:var(--muted)}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-links a{text-decoration:none;font-size:14px;font-weight:500;color:var(--muted);padding:7px 14px;border-radius:var(--radius-pill);transition:all .2s}
+.nav-links a:hover{color:var(--text);background:var(--blush)}
+.nav-cta{background:var(--rose-deep)!important;color:white!important;padding:8px 20px!important}
+.nav-cta:hover{background:var(--lavender-deep)!important;color:white!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{width:22px;height:2px;background:var(--rose-deep);border-radius:2px}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-blob{position:absolute;border-radius:60% 40% 55% 45%/50% 60% 40% 50%;animation:float 8s ease-in-out infinite}
+.blob1{width:500px;height:500px;background:var(--blush);top:-100px;right:-100px}
+.blob2{width:350px;height:350px;background:var(--lavender);bottom:-80px;left:-60px;animation-delay:-3s}
+.blob3{width:200px;height:200px;background:var(--sage);top:40%;right:30%;animation-delay:-5s;opacity:.6}
+@keyframes float{0%,100%{transform:translate(0,0) rotate(0deg)}33%{transform:translate(12px,-18px) rotate(3deg)}66%{transform:translate(-8px,10px) rotate(-2deg)}}
+.hero-content{position:relative;z-index:1;max-width:640px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-pill);padding:6px 16px;font-size:13px;font-weight:600;color:var(--rose-deep);margin-bottom:24px;letter-spacing:.03em}
+.hero-eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--rose-deep);display:inline-block}
+.hero-rek{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,96px);font-weight:600;color:var(--rose-deep);line-height:1;letter-spacing:-.03em;margin-bottom:8px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.25;color:var(--text);margin-bottom:20px;letter-spacing:-.01em}
+h1 em{font-style:italic;color:var(--rose-deep)}
+.hero-sub{font-size:17px;color:var(--muted);font-weight:400;max-width:480px;margin-bottom:36px;line-height:1.75}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--radius-pill);font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;border:none;font-family:'Nunito',sans-serif;transition:all .25s}
+.btn-primary{background:var(--rose-deep);color:white}
+.btn-primary:hover{background:var(--lavender-deep);transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,123,132,.3)}
+.btn-outline{background:transparent;color:var(--rose-deep);border:2px solid var(--rose)}
+.btn-outline:hover{background:var(--blush);border-color:var(--rose-deep)}
+.hero-trust{display:flex;align-items:center;gap:16px;margin-top:40px;flex-wrap:wrap}
+.hero-trust-text{font-size:13px;color:var(--muted);font-weight:500}
+.trust-dots{display:flex}
+.trust-dot{width:32px;height:32px;border-radius:50%;background:var(--lavender);border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--lavender-deep);margin-left:-8px}
+.trust-dot:first-child{margin-left:0}
+
+/* SECTIONS */
+section{padding:90px 5%}
+.section-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:12px}
+h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:500;line-height:1.2;color:var(--text);margin-bottom:16px;letter-spacing:-.02em}
+h2 em{font-style:italic;color:var(--rose-deep)}
+.section-sub{font-size:16px;color:var(--muted);max-width:520px;line-height:1.75}
+
+/* ABOUT */
+#about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center;margin-top:50px}
+.about-image-wrap{position:relative}
+.about-image{width:100%;aspect-ratio:4/5;border-radius:var(--radius-xl);background:linear-gradient(135deg,var(--blush) 0%,var(--lavender) 50%,var(--sage) 100%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.about-image img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius-xl)}
+.about-image-placeholder{text-align:center;padding:40px}
+.about-initials{font-family:'Playfair Display',serif;font-size:80px;font-weight:500;color:var(--rose-deep);opacity:.35;line-height:1}
+.about-image-placeholder p{font-size:13px;color:var(--muted);margin-top:8px}
+.about-badge{position:absolute;bottom:24px;left:-20px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 18px;box-shadow:0 8px 32px rgba(180,130,140,.12)}
+.about-badge-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:var(--rose-deep);line-height:1}
+.about-badge-text{font-size:12px;color:var(--muted);margin-top:2px}
+.about-text p{color:var(--muted);margin-bottom:16px;font-size:15.5px}
+.about-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.pill{padding:7px 16px;border-radius:var(--radius-pill);font-size:13px;font-weight:600}
+.pill-rose{background:var(--blush);color:var(--rose-deep)}
+.pill-lav{background:var(--lavender);color:var(--lavender-deep)}
+.pill-sage{background:var(--sage);color:var(--sage-deep)}
+
+/* SERVICES */
+#services{background:var(--cream)}
+.services-header{text-align:center;margin-bottom:52px}
+.services-header .section-sub{margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.service-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:32px;transition:all .3s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:4px 4px 0 0;background:linear-gradient(90deg,var(--rose),var(--lavender-mid))}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(180,130,140,.14);border-color:var(--rose)}
+.service-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.service-card h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;margin-bottom:10px;color:var(--text)}
+.service-card p{font-size:14.5px;color:var(--muted);line-height:1.7}
+.service-detail{margin-top:16px;padding-top:16px;border-top:1px solid var(--border);font-size:13px;color:var(--rose-deep);font-weight:600}
+
+/* INSURANCE STRIP */
+.insurance-strip{background:var(--lavender);border-radius:var(--radius-xl);padding:32px 40px;margin:0 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.insurance-strip h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:var(--text)}
+.insurance-strip p{font-size:14px;color:var(--muted);margin-top:4px}
+.insurance-tags{display:flex;gap:10px;flex-wrap:wrap}
+.ins-tag{background:white;border-radius:var(--radius-pill);padding:8px 18px;font-size:13.5px;font-weight:600;color:var(--lavender-deep)}
+
+/* BOOKING */
+#booking{background:var(--white)}
+.booking-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:48px}
+.booking-steps{display:flex;flex-direction:column;gap:16px;margin-top:20px}
+.step{display:flex;align-items:flex-start;gap:14px}
+.step-num{width:32px;height:32px;border-radius:50%;background:var(--blush);color:var(--rose-deep);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-text strong{display:block;font-size:14.5px;font-weight:600;color:var(--text)}
+.step-text span{font-size:13.5px;color:var(--muted)}
+.hipaa-note{display:flex;align-items:center;gap:10px;background:var(--sage);border-radius:12px;padding:14px 18px;font-size:13.5px;color:var(--sage-deep);font-weight:600;margin-top:24px}
+
+/* SIMPLEPRACTICE WIDGET AREA */
+.sp-widget-wrap{margin-top:48px;border-radius:var(--radius-xl);overflow:hidden}
+.sp-placeholder{background:var(--cream);border:2px dashed var(--rose);border-radius:var(--radius-xl);padding:48px 40px;text-align:center}
+.sp-placeholder-icon{font-size:40px;margin-bottom:14px}
+.sp-placeholder-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:var(--rose-deep);margin-bottom:8px}
+.sp-placeholder-text{font-size:14.5px;color:var(--muted);max-width:420px;margin:0 auto 20px;line-height:1.7}
+.sp-code{background:var(--text);color:#a8e6cf;font-family:monospace;font-size:12.5px;padding:12px 20px;border-radius:10px;display:inline-block}
+
+/* CONTACT */
+#contact{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px}
+.contact-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:32px}
+.contact-card h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;margin-bottom:20px}
+.contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+.contact-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.ci-blush{background:var(--blush)}.ci-lav{background:var(--lavender)}.ci-sage{background:var(--sage)}
+.contact-item-text strong{display:block;font-size:14px;font-weight:600;color:var(--text)}
+.contact-item-text span{font-size:13.5px;color:var(--muted)}
+.ai-contact-form textarea{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:12px;font-family:'Nunito',sans-serif;font-size:14px;color:var(--text);resize:vertical;outline:none;background:white;margin-bottom:12px;transition:border .2s;line-height:1.6}
+.ai-contact-form textarea:focus{border-color:var(--rose-deep)}
+.ai-response{background:var(--lavender);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--text);line-height:1.7;margin-top:12px;display:none}
+.ai-response.show{display:block}
+.ai-badge-sm{display:inline-flex;align-items:center;gap:5px;background:var(--rose-deep);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.03em}
+
+/* FOOTER */
+footer{background:var(--text);color:rgba(255,255,255,.7);padding:48px 5% 32px;text-align:center}
+.footer-rek{font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:white;margin-bottom:4px}
+.footer-name{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:24px}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:24px;flex-wrap:wrap}
+.footer-links a{font-size:13.5px;font-weight:500;color:rgba(255,255,255,.6);text-decoration:none;transition:.2s}
+.footer-links a:hover{color:white}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,.1);margin-bottom:20px}
+.footer-legal{font-size:12px;line-height:1.9;color:rgba(255,255,255,.4)}
+.footer-legal a{color:rgba(255,255,255,.4);text-decoration:none}
+
+/* SPINNER */
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{display:inline-block;width:15px;height:15px;border:2px solid var(--lavender-mid);border-top-color:var(--lavender-deep);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;animation:fadeUp .7s ease forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.34s}.d4{animation-delay:.46s}.d5{animation-delay:.58s}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none}.nav-hamburger{display:flex}
+  .about-grid,.booking-intro,.contact-grid{grid-template-columns:1fr}
+  .about-image{aspect-ratio:3/2}.about-badge{left:12px;bottom:12px}
+  .insurance-strip{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <span class="nav-brand-rek">REK</span>
+    <span class="nav-brand-sub">Tracy Croghan, LICSW</span>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#booking">Book</a>
+    <a href="#contact">Contact</a>
+    <a href="#booking" class="nav-cta btn">Request Appointment</a>
+  </div>
+  <div class="nav-hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+    <div class="hero-blob blob3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up d1">Now Accepting New Clients in Omaha, NE</div>
+    <div class="hero-rek fade-up d2">REK</div>
+    <h1 class="fade-up d3">Therapy that meets you <em>exactly where you are.</em></h1>
+    <p class="hero-sub fade-up d4">Compassionate, individualized therapy for adults navigating anxiety, life transitions, grief, trauma, and more. With Tracy Croghan, LICSW.</p>
+    <div class="hero-actions fade-up d4">
+      <a href="#booking" class="btn btn-primary">Book a Free Consultation</a>
+      <a href="#about" class="btn btn-outline">Meet Tracy</a>
+    </div>
+    <div class="hero-trust fade-up d5">
+      <div class="trust-dots">
+        <div class="trust-dot">A</div><div class="trust-dot">B</div>
+        <div class="trust-dot">C</div><div class="trust-dot">+</div>
+      </div>
+      <span class="hero-trust-text">Accepting private pay &amp; BCBS Nebraska</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-image-wrap">
+      <div class="about-image">
+        <!--
+          TO ADD YOUR PHOTO:
+          Replace the placeholder div below with:
+          <img src="tracy-photo.jpg" alt="Tracy Croghan, LICSW">
+        -->
+        <div class="about-image-placeholder">
+          <div class="about-initials">TC</div>
+          <p>Photo coming soon</p>
+        </div>
+      </div>
+      <div class="about-badge">
+        <div class="about-badge-num">LICSW</div>
+        <div class="about-badge-text">Licensed Independent<br>Clinical Social Worker</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">About Tracy</div>
+      <h2>Therapy rooted in <em>genuine connection</em></h2>
+      <p>I'm Tracy Croghan, a Licensed Independent Clinical Social Worker dedicated to helping adults work through life's most difficult challenges. Whether you're navigating anxiety, depression, grief, relationship struggles, or major life transitions — you don't have to face it alone.</p>
+      <p>My approach is warm, collaborative, and deeply individualized. I draw on evidence-based modalities including Cognitive Behavioral Therapy (CBT), mindfulness-based techniques, and trauma-informed care to meet you exactly where you are.</p>
+      <p>I believe therapy should feel like a genuine partnership — a place where you feel truly heard, respected, and empowered to build the life you want.</p>
+      <div class="about-pills">
+        <span class="pill pill-rose">Anxiety &amp; Depression</span>
+        <span class="pill pill-lav">Life Transitions</span>
+        <span class="pill pill-sage">Trauma &amp; Grief</span>
+        <span class="pill pill-rose">Relationship Issues</span>
+        <span class="pill pill-lav">Stress &amp; Burnout</span>
+        <span class="pill pill-sage">Self-esteem</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div class="section-label">What I Offer</div>
+    <h2>Services designed around <em>you</em></h2>
+    <p class="section-sub">Every person's journey is different. I offer flexible session formats to fit your needs, schedule, and goals.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon" style="background:var(--blush)">🌿</div>
+      <h3>Individual Therapy</h3>
+      <p>One-on-one sessions focused on your unique goals. We'll work together at your pace to explore patterns, build skills, and create meaningful change.</p>
+      <div class="service-detail">50 minutes · $150/session</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon" style="background:var(--lavender)">✨</div>
+      <h3>Free Consultation</h3>
+      <p>A free 20-minute phone or video call to see if we're a good fit. No pressure, no commitment — just a warm conversation about what brings you here.</p>
+      <div class="service-detail">20 minutes · Free</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon" style="background:var(--sage)">💬</div>
+      <h3>Telehealth Sessions</h3>
+      <p>Secure, confidential video therapy from the comfort of your home. Just as effective as in-person — and far more convenient for busy lives.</p>
+      <div class="service-detail">50 minutes · Available now</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon" style="background:var(--warm)">🌸</div>
+      <h3>Crisis Support</h3>
+      <p>Extended sessions available for acute distress or difficult moments. I'm committed to being here when you need support most.</p>
+      <div class="service-detail">80 minutes · As needed</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE STRIP -->
+<div class="insurance-strip">
+  <div>
+    <h3>Insurance &amp; Payment</h3>
+    <p>Transparent pricing, no surprises. Quality care should be accessible.</p>
+  </div>
+  <div class="insurance-tags">
+    <span class="ins-tag">✓ Private Pay</span>
+    <span class="ins-tag">✓ BCBS Nebraska</span>
+    <span class="ins-tag">✓ Sliding Scale Available</span>
+    <span class="ins-tag">✓ HSA / FSA Accepted</span>
+  </div>
+</div>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="section-label">Get Started</div>
+  <h2>Ready to take the <em>first step?</em></h2>
+  <p class="section-sub">Scheduling is simple and secure. Book directly through my client portal below.</p>
+
+  <div class="booking-intro">
+    <div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:500;margin-bottom:12px">What to expect</h3>
+      <p style="font-size:15px;color:var(--muted);line-height:1.75">Reaching out for therapy takes courage. Here's how the process works so you know exactly what to expect:</p>
+      <div class="booking-steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Request your appointment</strong><span>Use the booking widget to choose a time that works for you.</span></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Tracy confirms within 24 hours</strong><span>You'll receive a confirmation and any intake paperwork.</span></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Free 20-minute consultation</strong><span>A no-pressure call to make sure we're a great fit.</span></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Begin your journey</strong><span>Your first full session is scheduled and you're on your way.</span></div></div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:20px">All scheduling is handled securely through SimplePractice — a HIPAA-compliant platform built specifically for therapy practices. Your privacy is fully protected.</p>
+      <div class="hipaa-note">
+        <span style="font-size:20px">🔒</span>
+        HIPAA-compliant · Encrypted &amp; secure · Powered by SimplePractice
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       SIMPLEPRACTICE WIDGET — PASTE YOUR EMBED CODE IN THE DIV BELOW
+       ================================================================
+       How to get your widget code:
+       1. Log into SimplePractice
+       2. Go to Settings → Client Portal
+       3. Click "Request Appointment Widget"
+       4. Copy the embed code
+       5. Paste it inside the div below, replacing the sp-placeholder block
+       ================================================================ -->
+  <div class="sp-widget-wrap">
+
+    <!-- REMOVE THIS PLACEHOLDER BLOCK when you add your SimplePractice widget -->
+    <div class="sp-placeholder">
+      <div class="sp-placeholder-icon">📅</div>
+      <div class="sp-placeholder-title">Online Booking Coming Soon</div>
+      <p class="sp-placeholder-text">Your SimplePractice booking widget will appear here. Paste your embed code from SimplePractice to activate secure online scheduling.</p>
+      <div class="sp-code">Settings → Client Portal → Request Appointment Widget</div>
+    </div>
+    <!-- END PLACEHOLDER -->
+
+    <!-- YOUR SIMPLEPRACTICE WIDGET CODE GOES HERE -->
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get in Touch</div>
+  <h2>Let's <em>connect</em></h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Contact Information</h3>
+      <div class="contact-item">
+        <div class="contact-icon ci-blush">📍</div>
+        <div class="contact-item-text">
+          <strong>Location</strong>
+          <!-- UPDATE: your office address -->
+          <span>Omaha, Nebraska<br>Telehealth available statewide in Nebraska</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon ci-lav">✉</div>
+        <div class="contact-item-text">
+          <strong>Email</strong>
+          <span>rektherapy@gmail.com</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon ci-sage">📞</div>
+        <div class="contact-item-text">
+          <strong>Phone</strong>
+          <!-- UPDATE: your real phone number -->
+          <span>(402) 709-9802</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon ci-blush">🕐</div>
+        <div class="contact-item-text">
+          <strong>Office Hours</strong>
+          <!-- UPDATE: your real availability -->
+          <span>Monday – Friday: 9am – 6pm CT<br>Evening slots available</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div class="ai-badge-sm">✦ AI Assistant</div>
+      <h3>Have a question?</h3>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:16px">Ask anything about therapy, insurance, or what to expect. Answered instantly.</p>
+      <div class="ai-contact-form">
+        <textarea id="contact-q" rows="3" placeholder="e.g. 'What should I expect in my first session?' or 'Do you accept BCBS Nebraska?'"></textarea>
+        <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="answerContactQ()" id="contact-btn">Ask a Question →</button>
+        <div class="ai-response" id="contact-response"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-rek">REK Therapy</div>
+  <div class="footer-name">Tracy Croghan, LICSW · Omaha, Nebraska</div>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#booking">Book</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-legal">
+    © 2026 REK Therapy · Tracy Croghan, LICSW · All rights reserved ·
+    <a href="#">Privacy Policy</a> · <a href="#">HIPAA Notice</a><br>
+    This website does not provide crisis services. If you are in immediate crisis,
+    please call or text <strong style="color:rgba(255,255,255,.6)">988</strong>
+    (Suicide &amp; Crisis Lifeline) or go to your nearest emergency room.
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
+});
+
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  const open = links.style.display === 'flex';
+  links.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:fixed;top:70px;right:20px;background:white;padding:16px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.1);z-index:200;gap:4px';
+}
+
+// AI Q&A — calls /api/claude (secure Vercel serverless function)
+async function answerContactQ() {
+  const q = document.getElementById('contact-q').value.trim();
+  if (!q) return;
+  const btn = document.getElementById('contact-btn');
+  const out = document.getElementById('contact-response');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Thinking...';
+  out.classList.remove('show');
+  try {
+    const res = await fetch('/api/claude', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system: `You are a helpful assistant for REK Therapy — Tracy Croghan, LICSW, a licensed therapist in Omaha, Nebraska. Answer questions warmly and concisely (2-4 sentences) about therapy, the practice, services, insurance (private pay and BCBS Nebraska accepted), telehealth, and the first session process. Never provide clinical advice or diagnoses. If someone needs to reach Tracy directly, her email is rektherapy@gmail.com and phone is (402) 709-9802.`,
+        messages: [{ role: 'user', content: q }]
+      })
+    });
+    const data = await res.json();
+    const text = data.content?.map(b => b.text || '').join('') || 'Please call or email us directly — we\'re happy to help!';
+    out.textContent = text;
+    out.classList.add('show');
+  } catch (e) {
+    out.textContent = 'Something went wrong. Please call or email us directly.';
+    out.classList.add('show');
+  }
+  btn.disabled = false;
+  btn.textContent = 'Ask a Question →';
+}
+</script>
+</body>
+</html>
