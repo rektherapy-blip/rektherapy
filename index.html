@@ -150,6 +150,20 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:48px 5% 32px;te
 .footer-legal{font-size:12px;line-height:1.9;color:rgba(255,255,255,.4)}
 .footer-legal a{color:rgba(255,255,255,.4);text-decoration:none}
 
+/* BOOK NOW CARD */
+.sp-book-wrap{margin-top:48px}
+.sp-book-card{background:linear-gradient(135deg,var(--blush) 0%,var(--lavender) 100%);border-radius:var(--radius-xl);padding:48px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;border:1px solid var(--rose)}
+.sp-book-icon{font-size:48px;margin-bottom:16px}
+.sp-book-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:500;color:var(--text);margin-bottom:10px;line-height:1.2}
+.sp-book-subtitle{font-size:15px;color:var(--muted);line-height:1.7;max-width:420px;margin-bottom:20px}
+.sp-book-features{display:flex;flex-direction:column;gap:6px}
+.sp-book-features span{font-size:13.5px;font-weight:600;color:var(--sage-deep)}
+.sp-book-right{display:flex;flex-direction:column;align-items:center;gap:12px;flex-shrink:0}
+.sp-book-btn{display:inline-flex;align-items:center;padding:18px 36px;background:var(--rose-deep);color:white;border-radius:var(--radius-pill);font-size:16px;font-weight:700;text-decoration:none;transition:all .25s;white-space:nowrap;font-family:'Nunito',sans-serif}
+.sp-book-btn:hover{background:var(--lavender-deep);transform:translateY(-2px);box-shadow:0 10px 32px rgba(201,123,132,.3)}
+.sp-book-note{font-size:12px;color:var(--muted);font-weight:500}
+@media(max-width:768px){.sp-book-card{flex-direction:column;text-align:center}.sp-book-features{align-items:center}.sp-book-right{width:100%}.sp-book-btn{width:100%;justify-content:center}}
+
 /* SPINNER */
 @keyframes spin{to{transform:rotate(360deg)}}
 .spinner{display:inline-block;width:15px;height:15px;border:2px solid var(--lavender-mid);border-top-color:var(--lavender-deep);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
@@ -317,29 +331,25 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:48px 5% 32px;te
     </div>
   </div>
 
-  <!-- ================================================================
-       SIMPLEPRACTICE WIDGET — PASTE YOUR EMBED CODE IN THE DIV BELOW
-       ================================================================
-       How to get your widget code:
-       1. Log into SimplePractice
-       2. Go to Settings → Client Portal
-       3. Click "Request Appointment Widget"
-       4. Copy the embed code
-       5. Paste it inside the div below, replacing the sp-placeholder block
-       ================================================================ -->
-  <div class="sp-widget-wrap">
-
-    <!-- REMOVE THIS PLACEHOLDER BLOCK when you add your SimplePractice widget -->
-    <div class="sp-placeholder">
-      <div class="sp-placeholder-icon">📅</div>
-      <div class="sp-placeholder-title">Online Booking Coming Soon</div>
-      <p class="sp-placeholder-text">Your SimplePractice booking widget will appear here. Paste your embed code from SimplePractice to activate secure online scheduling.</p>
-      <div class="sp-code">Settings → Client Portal → Request Appointment Widget</div>
+  <div class="sp-book-wrap">
+    <div class="sp-book-card">
+      <div class="sp-book-left">
+        <div class="sp-book-icon">📅</div>
+        <div>
+          <div class="sp-book-title">Ready to get started?</div>
+          <div class="sp-book-subtitle">Book securely through my SimplePractice client portal. HIPAA-compliant, easy, and takes less than 2 minutes.</div>
+          <div class="sp-book-features">
+            <span>✓ Free 20-min consultation</span>
+            <span>✓ Telehealth anywhere in Nebraska</span>
+            <span>✓ Secure &amp; HIPAA-compliant</span>
+          </div>
+        </div>
+      </div>
+      <div class="sp-book-right">
+        <a href="https://tracy-croghan.clientsecure.me" target="_blank" rel="noopener noreferrer" class="sp-book-btn">Book My Appointment →</a>
+        <div class="sp-book-note">🔒 Powered by SimplePractice</div>
+      </div>
     </div>
-    <!-- END PLACEHOLDER -->
-
-    <!-- YOUR SIMPLEPRACTICE WIDGET CODE GOES HERE -->
-
   </div>
 </section>
 
