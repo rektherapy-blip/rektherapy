@@ -268,7 +268,7 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:48px 5% 32px;te
       <div class="service-icon" style="background:var(--blush)">🌿</div>
       <h3>Individual Therapy</h3>
       <p>One-on-one sessions focused on your unique goals. We'll work together at your pace to explore patterns, build skills, and create meaningful change.</p>
-      <div class="service-detail">50 minutes · $150/session</div>
+      <div class="service-detail">50 minutes · Contact me for fees</div>
     </div>
     <div class="service-card">
       <div class="service-icon" style="background:var(--lavender)">✨</div>
@@ -286,7 +286,7 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:48px 5% 32px;te
       <div class="service-icon" style="background:var(--warm)">🌸</div>
       <h3>Crisis Support</h3>
       <p>Extended sessions available for acute distress or difficult moments. I'm committed to being here when you need support most.</p>
-      <div class="service-detail">80 minutes · As needed</div>
+      <div class="service-detail">80 minutes · Contact me for fees</div>
     </div>
   </div>
 </section>
@@ -300,8 +300,8 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:48px 5% 32px;te
   <div class="insurance-tags">
     <span class="ins-tag">✓ Private Pay</span>
     <span class="ins-tag">✓ BCBS Nebraska</span>
-    <span class="ins-tag">✓ Sliding Scale Available</span>
     <span class="ins-tag">✓ HSA / FSA Accepted</span>
+    <span class="ins-tag">✓ Contact me for fee information</span>
   </div>
 </div>
 
@@ -394,11 +394,16 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:48px 5% 32px;te
     </div>
 
     <div class="contact-card">
+      <h3>Get in touch with Tracy</h3>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:20px">Have questions about fees, availability, or whether we're a good fit? Send Tracy a secure, HIPAA-compliant message directly through SimplePractice.</p>
+      <a href="https://tracy-croghan.clientsecure.me/contact-widget" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:16px">✉ Contact Tracy Securely →</a>
+      <div style="display:flex;align-items:center;gap:8px;background:var(--sage);border-radius:10px;padding:10px 14px;font-size:12.5px;color:var(--sage-deep);font-weight:600;margin-bottom:24px">
+        <span>🔒</span> HIPAA-compliant · Powered by SimplePractice
+      </div>
       <div class="ai-badge-sm">✦ AI Assistant</div>
-      <h3>Have a question?</h3>
-      <p style="font-size:14px;color:var(--muted);margin-bottom:16px">Ask anything about therapy, insurance, or what to expect. Answered instantly.</p>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Have a quick general question? Ask the AI assistant below.</p>
       <div class="ai-contact-form">
-        <textarea id="contact-q" rows="3" placeholder="e.g. 'What should I expect in my first session?' or 'Do you accept BCBS Nebraska?'"></textarea>
+        <textarea id="contact-q" rows="2" placeholder="e.g. 'What should I expect in my first session?' or 'Do you accept BCBS Nebraska?'"></textarea>
         <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="answerContactQ()" id="contact-btn">Ask a Question →</button>
         <div class="ai-response" id="contact-response"></div>
       </div>
@@ -454,7 +459,7 @@ async function answerContactQ() {
       body: JSON.stringify({
         system: `You are a warm, helpful assistant for REK Therapy — Tracy Croghan, LICSW, a Licensed Independent Clinical Social Worker in Nebraska. Answer questions concisely (2-4 sentences) in a compassionate, welcoming tone. Here is everything about the practice:
 
-INSURANCE & FEES: Accepts BCBS Nebraska and Self-Pay/Private Pay ONLY. Does NOT accept Medicaid, Aetna, United Healthcare, or any other insurance. No sliding scale. Session rate is $150. HSA and FSA accepted. Free 20-minute initial consultation available.
+INSURANCE & FEES: Accepts BCBS Nebraska and Self-Pay/Private Pay ONLY. Does NOT accept Medicaid, Aetna, United Healthcare, or any other insurance. No sliding scale. Session fees are competitive — contact Tracy directly for current fee information. HSA and FSA accepted. Free 20-minute initial consultation available.
 
 SERVICES: Individual therapy for adults (50 min). Free 20-min initial consultation. Crisis/extended sessions (80 min) as needed. Does NOT offer couples or group therapy.
 
