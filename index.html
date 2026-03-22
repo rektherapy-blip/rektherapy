@@ -133,11 +133,15 @@ h2 em{font-style:italic;color:var(--rose-deep)}
 .ci-blush{background:var(--blush)}.ci-lav{background:var(--lavender)}.ci-sage{background:var(--sage)}
 .contact-item-text strong{display:block;font-size:14px;font-weight:600;color:var(--text)}
 .contact-item-text span{font-size:13.5px;color:var(--muted)}
-.ai-contact-form textarea{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:12px;font-family:'Nunito',sans-serif;font-size:14px;color:var(--text);resize:vertical;outline:none;background:white;margin-bottom:12px;transition:border .2s;line-height:1.6}
-.ai-contact-form textarea:focus{border-color:var(--rose-deep)}
-.ai-response{background:var(--lavender);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--text);line-height:1.7;margin-top:12px;display:none}
-.ai-response.show{display:block}
-.ai-badge-sm{display:inline-flex;align-items:center;gap:5px;background:var(--rose-deep);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.03em}
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-size:14.5px;font-weight:600;color:var(--text);cursor:pointer;background:var(--white);transition:background .15s;user-select:none}
+.faq-question:hover{background:var(--blush)}
+.faq-icon{font-size:20px;font-weight:300;color:var(--rose-deep);flex-shrink:0;margin-left:12px;line-height:1}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--cream)}
+.faq-answer p{padding:16px 20px;font-size:14px;color:var(--muted);line-height:1.75;margin:0}
+.ai-badge-sm{display:none}
 
 /* FOOTER */
 footer{background:var(--text);color:rgba(255,255,255,.7);padding:48px 5% 32px;text-align:center}
@@ -164,9 +168,7 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:48px 5% 32px;te
 .sp-book-note{font-size:12px;color:var(--muted);font-weight:500}
 @media(max-width:768px){.sp-book-card{flex-direction:column;text-align:center}.sp-book-features{align-items:center}.sp-book-right{width:100%}.sp-book-btn{width:100%;justify-content:center}}
 
-/* SPINNER */
-@keyframes spin{to{transform:rotate(360deg)}}
-.spinner{display:inline-block;width:15px;height:15px;border:2px solid var(--lavender-mid);border-top-color:var(--lavender-deep);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
+
 
 /* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
@@ -397,15 +399,8 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:48px 5% 32px;te
       <h3>Get in touch with Tracy</h3>
       <p style="font-size:14px;color:var(--muted);margin-bottom:20px">Have questions about fees, availability, or whether we're a good fit? Send Tracy a secure, HIPAA-compliant message directly through SimplePractice.</p>
       <a href="https://tracy-croghan.clientsecure.me/contact-widget" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:16px">✉ Contact Tracy Securely →</a>
-      <div style="display:flex;align-items:center;gap:8px;background:var(--sage);border-radius:10px;padding:10px 14px;font-size:12.5px;color:var(--sage-deep);font-weight:600;margin-bottom:24px">
+      <div style="display:flex;align-items:center;gap:8px;background:var(--sage);border-radius:10px;padding:10px 14px;font-size:12.5px;color:var(--sage-deep);font-weight:600">
         <span>🔒</span> HIPAA-compliant · Powered by SimplePractice
-      </div>
-      <div class="ai-badge-sm">✦ AI Assistant</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Have a quick general question? Ask the AI assistant below.</p>
-      <div class="ai-contact-form">
-        <textarea id="contact-q" rows="2" placeholder="e.g. 'What should I expect in my first session?' or 'Do you accept BCBS Nebraska?'"></textarea>
-        <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="answerContactQ()" id="contact-btn">Ask a Question →</button>
-        <div class="ai-response" id="contact-response"></div>
       </div>
     </div>
   </div>
@@ -444,47 +439,13 @@ function toggleMenu() {
 }
 
 // AI Q&A — calls /api/claude (secure Vercel serverless function)
-async function answerContactQ() {
-  const q = document.getElementById('contact-q').value.trim();
-  if (!q) return;
-  const btn = document.getElementById('contact-btn');
-  const out = document.getElementById('contact-response');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Thinking...';
-  out.classList.remove('show');
-  try {
-    const res = await fetch('/api/claude', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        system: `You are a warm, helpful assistant for REK Therapy — Tracy Croghan, LICSW, a Licensed Independent Clinical Social Worker in Nebraska. Answer questions concisely (2-4 sentences) in a compassionate, welcoming tone. Here is everything about the practice:
-
-INSURANCE & FEES: Accepts BCBS Nebraska and Self-Pay/Private Pay ONLY. Does NOT accept Medicaid, Aetna, United Healthcare, or any other insurance. No sliding scale. Session fees are competitive — contact Tracy directly for current fee information. HSA and FSA accepted. Free 20-minute initial consultation available.
-
-SERVICES: Individual therapy for adults (50 min). Free 20-min initial consultation. Crisis/extended sessions (80 min) as needed. Does NOT offer couples or group therapy.
-
-FORMAT: Telehealth ONLY via secure video. Serves clients anywhere in Nebraska. No in-person sessions.
-
-SPECIALTIES: Anxiety and depression, life transitions, trauma and grief, relationship issues, stress and burnout, self-esteem.
-
-BOOKING: Clients book through the SimplePractice portal on the website. Tracy responds within 24 hours.
-
-CONTACT: rektherapy@gmail.com | (402) 709-9802 | Mon-Fri 9am-6pm CT.
-
-RULES: Never provide clinical advice or diagnoses. If someone is in crisis, direct them to call or text 988. If unsure, direct them to contact Tracy directly.`,
-        messages: [{ role: 'user', content: q }]
-      })
-    });
-    const data = await res.json();
-    const text = data.content?.map(b => b.text || '').join('') || 'Please call or email us directly — we\'re happy to help!';
-    out.textContent = text;
-    out.classList.add('show');
-  } catch (e) {
-    out.textContent = 'Something went wrong. Please call or email us directly.';
-    out.classList.add('show');
-  }
-  btn.disabled = false;
-  btn.textContent = 'Ask a Question →';
+function toggleFaq(el) {
+  const answer = el.nextElementSibling;
+  const icon = el.querySelector('.faq-icon');
+  const isOpen = answer.style.maxHeight;
+  document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = '');
+  document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '+');
+  if (!isOpen) { answer.style.maxHeight = answer.scrollHeight + 'px'; icon.textContent = '−'; }
 }
 </script>
 </body>
